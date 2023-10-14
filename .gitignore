@@ -4,5 +4,7 @@
 scratch
 mywork
 
+venv_oop
+
 **/*.bin
 **/*.zip

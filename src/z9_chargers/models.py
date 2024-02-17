@@ -24,12 +24,13 @@ class Charger:
 
 class ChargingSession:
     csid: UUID
-    car_vin: Car
-    charger_id: Charger
-    client: id
+    car_vin: UUID
+    charger_id: UUID
+    client: UUID
     status: bool
     current_kw: float
     total_kwh: float
+    payment: float
 
 
 class ChargingStatus:

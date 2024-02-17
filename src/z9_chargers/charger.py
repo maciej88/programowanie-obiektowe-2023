@@ -34,9 +34,28 @@ class ChargingSystem:
         self.chargers[new_charger.serial_no] = Charger
         return new_charger
 
+    def create_charging_session(self, car_vin: str, charger_id: UUID, client_id: UUID) -> ChargingSession:
+        csid = uuid4()
+        car = self.cars.get(car_vin)
+        if car is None:
+            raise ValueError(f"Car with VIN {car_vin} not found.")
 
+        charger = self.chargers.get(charger_id)
+        if charger is None:
+            raise ValueError(f"Charger with ID {charger_id} not found.")
 
-
+        new_charging_session = ChargingSession(
+            csid=csid,
+            car_vin=car_vin,
+            charger_id=charger_id,
+            client=client_id,
+            status=Charger.status,
+            current_kw=Charger.max_current_kw,
+            total_kwh=0.0,
+            payment=0.0
+        )
+        # brak podanych informacji o pobieraniu opłaty i energii
+        return new_charging_session
 
 
 

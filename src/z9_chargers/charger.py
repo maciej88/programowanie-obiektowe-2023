@@ -28,6 +28,14 @@ class ChargingSystem:
         self.cars[vin] = new_car
         return new_car
 
+    def create_charger(self, max_current_kw: float) -> Charger:
+        serial_no = uuid4()
+        new_charger = Charger(serial_no, max_current_kw, 0.0, True)
+        self.chargers[new_charger.serial_no] = Charger
+        return new_charger
+
+
+
 
 
 

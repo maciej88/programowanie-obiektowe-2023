@@ -1,3 +1,4 @@
+from datetime import datetime
 from uuid import UUID
 
 
@@ -14,8 +15,18 @@ class Car:
     max_charging_power: float
 
 
+class Charger:
+    serial_no: UUID
+    max_current_kw: float
+    total_charged_kw: float
+    status: bool
+
+
 class ChargingSession:
     csid: UUID
+    car_vin: Car
+    charger_id: Charger
+    client: id
     status: bool
     current_kw: float
     total_kwh: float
@@ -29,14 +40,10 @@ class ChargingStatus:
 
 class ChargingService:
     chargers: list[Charger]
-    time_modifier: float  # (for testing)
+    time_modifier: datetime  # (for testing)
 
 
-class Charger:
-    max_current_kw: float
-    total_charged_kw: float
-    attached_car_vin: str
-    status: bool
+
 
 
 # class ChargerStatus:

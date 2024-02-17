@@ -23,8 +23,12 @@ class ChargingSystem:
         self.__accounts[new_account.id] = new_account
         return new_account
 
-    def crete_cars(self, vin: str, max_charging_power: str) -> list[Car]:
-        pass
+    def crete_cars(self, vin: str, max_charging_power: str) -> Car:
+        new_car = Car(vin, 0.0, max_charging_power)
+        self.cars[vin] = new_car
+        return new_car
+
+
 
 
 

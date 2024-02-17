@@ -11,7 +11,7 @@ class ClientAccount:
 class Car:
     vin: str
     total_charged_kwh: float
-    max_current_kw: float
+    max_charging_power: float
 
 
 class ChargingSession:

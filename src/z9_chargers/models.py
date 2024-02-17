@@ -5,6 +5,7 @@ class ClientAccount:
     id: UUID
     name: str
     funds: float
+    password: str
 
 
 class Car:
@@ -38,7 +39,7 @@ class Charger:
     status: bool
 
 
-class ChargerStatus:
-    FREE: bool
-    CHARGING: bool
-    ERROR: bool
+# class ChargerStatus:
+#     FREE: bool
+#     CHARGING: bool
+#     ERROR: bool

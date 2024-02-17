@@ -7,9 +7,9 @@ from uuid import uuid4
 class ChargingSystem:
 
     def __init__(self):
-        self.chargers = list()
-        self.__accounts = list()
-        self.cars = {}
+        self.chargers: dict[Charger] = dict()
+        self.__accounts: dict[ClientAccount] = dict()
+        self.cars: dict[Car] = dict()
         self.password_hasher = PasswordHasher()
 
     def create_account(self, name: str, funds: float, password: str):
@@ -20,10 +20,10 @@ class ChargingSystem:
             "funds": funds,
             "password": hashed_password
         }
-        self.__accounts.append(new_account)
+        self.__accounts[new_account["id"]] = new_account
         return new_account
 
-    def crete_cars(self, vin: str) -> list[Car]:
+    def crete_cars(self, vin: str, max_charging_power: str) -> list[Car]:
         pass
 
 
